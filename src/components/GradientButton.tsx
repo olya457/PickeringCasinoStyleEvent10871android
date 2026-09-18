@@ -15,18 +15,18 @@ type Props = {
 export const GradientButton = ({ title, onPress, disabled, style, secondary, loading }: Props) => (
   <Pressable onPress={onPress} disabled={disabled || loading} style={[styles.pressable, style]}>
     <LinearGradient
-      colors={secondary ? ['#23222E', '#23222E'] : disabled ? ['#44404F', '#44404F'] : gradients.primary}
+      colors={disabled ? [colors.disabled, colors.disabled] : secondary ? [colors.surfaceMuted, colors.surfaceMuted] : gradients.primary}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
       style={styles.button}
     >
       {loading ? (
         <View style={styles.content}>
-          <ActivityIndicator color={colors.text} />
+          <ActivityIndicator color={disabled ? colors.textMuted : secondary ? colors.text : colors.textOnAccent} />
         </View>
       ) : (
         <View pointerEvents="none" style={styles.content}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, { color: disabled ? colors.textMuted : secondary ? colors.text : colors.textOnAccent }]}>{title}</Text>
         </View>
       )}
     </LinearGradient>

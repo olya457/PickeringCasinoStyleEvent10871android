@@ -109,12 +109,12 @@ const getStatusStyle = (item: BookingRecord) => ({
         ? colors.green
         : item.status === 'preparing'
           ? colors.gold
-          : colors.purple
+          : colors.bronze
       : item.status === 'cancelled'
         ? colors.red
         : item.status === 'confirmed'
           ? colors.green
-          : colors.purple,
+          : colors.bronze,
 });
 
 const styles = StyleSheet.create({

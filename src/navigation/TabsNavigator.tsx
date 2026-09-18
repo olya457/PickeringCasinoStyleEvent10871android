@@ -19,7 +19,7 @@ import { ParkingFloorScreen } from '../screens/parking/ParkingFloorScreen';
 import { ParkingHomeScreen } from '../screens/parking/ParkingHomeScreen';
 import { ParkingReserveScreen } from '../screens/parking/ParkingReserveScreen';
 import { ParkingResultScreen } from '../screens/parking/ParkingResultScreen';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
 import { BookingsStackParamList, EventsStackParamList, FoodStackParamList, MainTabParamList, MapStackParamList, ParkingStackParamList } from './types';
 
 const Tabs = createBottomTabNavigator<MainTabParamList>();
@@ -104,9 +104,9 @@ const AdaptiveTabs = () => {
         bottom: 40,
         height: isTablet ? 72 : 64,
         paddingVertical: 0,
-        backgroundColor: 'rgba(20, 18, 31, 0.96)',
+        backgroundColor: withAlpha(colors.surface, 0.96),
         borderWidth: 1,
-        borderColor: 'rgba(255,255,255,0.16)',
+        borderColor: withAlpha(colors.champagne, 0.16),
         borderRadius: 32,
         elevation: 0,
         shadowColor: '#000000',

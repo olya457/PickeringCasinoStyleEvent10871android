@@ -6,7 +6,7 @@ import { WebView } from 'react-native-webview';
 import { brandingAssets } from '../assets';
 import { GradientText } from '../components/GradientText';
 import { RootStackParamList } from '../navigation/types';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
 import { useLayout } from '../theme/layout';
 
 type Props = Partial<NativeStackScreenProps<RootStackParamList, 'Splash'>> & {
@@ -38,7 +38,7 @@ export const SplashScreen = ({ navigation, bootOnly }: Props) => {
 
   return (
     <ImageBackground source={brandingAssets.heroVenue} style={styles.background}>
-      <LinearGradient colors={['rgba(6,6,10,0.1)', 'rgba(6,6,10,0.86)']} style={styles.overlay}>
+      <LinearGradient colors={[withAlpha(colors.background, 0.1), withAlpha(colors.background, 0.86)]} style={styles.overlay}>
         <View style={styles.content}>
           <View style={[styles.logoCard, { width: logoSize, height: logoSize }]}>
             <Animated.View style={{ transform: [{ scale: pulse }] }}>
@@ -46,13 +46,13 @@ export const SplashScreen = ({ navigation, bootOnly }: Props) => {
             </Animated.View>
           </View>
           <GradientText width={titleWidth} fontSize={isTablet ? 48 : 36} style={styles.title}>
-            Pickering
+            Fashion
           </GradientText>
-          <Text style={styles.subtitle}>Style Event</Text>
+          <Text style={styles.subtitle}>Event Hub</Text>
           <View style={styles.loaderWrap}>
+            <View style={[styles.dot, { backgroundColor: colors.champagne }]} />
             <View style={[styles.dot, { backgroundColor: colors.gold }]} />
-            <View style={[styles.dot, { backgroundColor: colors.pink }]} />
-            <View style={[styles.dot, { backgroundColor: colors.purple }]} />
+            <View style={[styles.dot, { backgroundColor: colors.bronze }]} />
           </View>
           <Text style={styles.loadingText}>Loading</Text>
           {!bootOnly ? (
@@ -61,7 +61,7 @@ export const SplashScreen = ({ navigation, bootOnly }: Props) => {
                 originWhitelist={['*']}
                 scrollEnabled={false}
                 source={{
-                  html: `<html><body style="margin:0;background:transparent;display:flex;align-items:center;justify-content:center;"><div style="width:180px;height:4px;background:rgba(255,255,255,0.12);border-radius:999px;overflow:hidden;"><div style="width:60px;height:4px;background:linear-gradient(90deg,#FFB01F,#FF4D6D,#8E5CFF);border-radius:999px;animation:move 1.2s infinite;"></div></div><style>@keyframes move{0%{transform:translateX(-60px)}100%{transform:translateX(180px)}}</style></body></html>`,
+                  html: `<html><body style="margin:0;background:transparent;display:flex;align-items:center;justify-content:center;"><div style="width:180px;height:4px;background:${withAlpha(colors.gold, 0.12)};border-radius:999px;overflow:hidden;"><div style="width:60px;height:4px;background:linear-gradient(90deg,${gradients.primary.join(',')});border-radius:999px;animation:move 1.2s infinite;"></div></div><style>@keyframes move{0%{transform:translateX(-60px)}100%{transform:translateX(180px)}}</style></body></html>`,
                 }}
                 style={styles.webView}
               />
@@ -92,9 +92,9 @@ const styles = StyleSheet.create({
   },
   logoCard: {
     borderRadius: 34,
-    backgroundColor: 'rgba(13,12,20,0.34)',
+    backgroundColor: withAlpha(colors.surface, 0.34),
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.18)',
+    borderColor: withAlpha(colors.champagne, 0.18),
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',

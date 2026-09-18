@@ -10,7 +10,7 @@ import { Screen } from '../components/Screen';
 import { SectionHeader } from '../components/SectionHeader';
 import { events, homeBanner, homeHighlights } from '../data/content';
 import { MainTabParamList } from '../navigation/types';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
 
 export const HomeScreen = () => {
   const navigation = useNavigation<BottomTabNavigationProp<MainTabParamList>>();
@@ -18,18 +18,18 @@ export const HomeScreen = () => {
   const openEvents = () => navigation.navigate('EventsTab', { screen: 'EventsList' });
   const openFeaturedEvent = () => navigation.navigate('EventsTab', { screen: 'EventDetails', params: { eventId: featured.id } });
   const quickAccess = [
-    { title: 'Events', icon: '🎟️', color: 'rgba(243,199,54,0.12)', onPress: () => navigation.navigate('EventsTab') },
-    { title: 'Food Court', icon: '🍽️', color: 'rgba(255,77,141,0.12)', onPress: () => navigation.navigate('FoodTab') },
-    { title: 'Parking', icon: '🚗', color: 'rgba(124,77,255,0.12)', onPress: () => navigation.navigate('ParkingTab') },
-    { title: 'Event Map', icon: '🗺️', color: 'rgba(42,210,123,0.12)', onPress: () => navigation.navigate('MapTab') },
-    { title: 'My Bookings', icon: '📋', color: 'rgba(255,176,31,0.12)', wide: true, onPress: () => navigation.navigate('BookingsTab') },
+    { title: 'Events', icon: '🎟️', color: withAlpha(colors.gold, 0.12), onPress: () => navigation.navigate('EventsTab') },
+    { title: 'Food Court', icon: '🍽️', color: withAlpha(colors.champagne, 0.12), onPress: () => navigation.navigate('FoodTab') },
+    { title: 'Parking', icon: '🚗', color: withAlpha(colors.gold, 0.12), onPress: () => navigation.navigate('ParkingTab') },
+    { title: 'Event Map', icon: '🗺️', color: withAlpha(colors.green, 0.12), onPress: () => navigation.navigate('MapTab') },
+    { title: 'My Bookings', icon: '📋', color: withAlpha(colors.bronze, 0.12), wide: true, onPress: () => navigation.navigate('BookingsTab') },
   ];
 
   return (
     <Screen contentContainerStyle={styles.content}>
       <ImageBackground source={homeBanner.image} style={styles.hero} imageStyle={styles.heroImage}>
         <LinearGradient
-          colors={['rgba(9,9,12,0.18)', 'rgba(9,9,12,0.96)']}
+          colors={[withAlpha(colors.background, 0.18), withAlpha(colors.background, 0.96)]}
           pointerEvents="none"
           style={styles.heroOverlay}
         />
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   badge: {
     alignSelf: 'flex-start',
     color: colors.gold,
-    backgroundColor: 'rgba(243,199,54,0.14)',
+    backgroundColor: withAlpha(colors.gold, 0.14),
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 999,

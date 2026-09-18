@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginTop: 18,
   },
   check: {
-    color: colors.purple,
+    color: colors.bronze,
     fontSize: 46,
     fontWeight: '800',
   },
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   orderId: {
-    color: '#B58BFF',
+    color: colors.champagne,
     fontWeight: '800',
     textTransform: 'uppercase',
   },

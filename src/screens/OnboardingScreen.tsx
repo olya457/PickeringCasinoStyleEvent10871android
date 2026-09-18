@@ -6,7 +6,7 @@ import { GradientButton } from '../components/GradientButton';
 import { onboardingSlides } from '../data/content';
 import { RootStackParamList } from '../navigation/types';
 import { useAppContext } from '../state/AppContext';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
 import { useLayout } from '../theme/layout';
 
 export const OnboardingScreen = ({ navigation }: NativeStackScreenProps<RootStackParamList, 'Onboarding'>) => {
@@ -30,7 +30,7 @@ export const OnboardingScreen = ({ navigation }: NativeStackScreenProps<RootStac
 
   const renderItem = ({ item }: ListRenderItemInfo<(typeof onboardingSlides)[number]>) => (
     <ImageBackground source={item.image} style={[styles.slide, { width, minHeight: height }]}>
-      <LinearGradient colors={['rgba(5,5,8,0.18)', 'rgba(7,7,12,0.95)']} style={styles.overlay}>
+      <LinearGradient colors={[withAlpha(colors.background, 0.18), withAlpha(colors.background, 0.95)]} style={styles.overlay}>
         <View style={[styles.inner, isTablet && styles.innerTablet, isLandscape && styles.innerLandscape]}>
           <Pressable onPress={finish} style={styles.skip}>
             <Text style={styles.skipText}>Skip</Text>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   skip: {
     alignSelf: 'flex-end',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.18)',
+    borderColor: withAlpha(colors.champagne, 0.18),
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 999,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     width: 18,
     height: 3,
     borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,0.22)',
+    backgroundColor: withAlpha(colors.champagne, 0.22),
   },
   activeBar: {
     width: 26,

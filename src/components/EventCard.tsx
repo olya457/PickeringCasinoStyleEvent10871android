@@ -2,12 +2,12 @@ import React from 'react';
 import { ImageBackground, Pressable, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { EventItem } from '../types';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
 
 export const EventCard = ({ item, onPress, style }: { item: EventItem; onPress: () => void; style?: StyleProp<ViewStyle> }) => (
   <Pressable onPress={onPress} style={[styles.card, style]}>
     <ImageBackground source={item.image} style={styles.image} imageStyle={styles.imageStyle}>
-      <LinearGradient colors={['transparent', 'rgba(10,9,18,0.96)']} style={styles.overlay}>
+      <LinearGradient colors={['transparent', withAlpha(colors.background, 0.96)]} style={styles.overlay}>
         <View style={styles.badgeRow}>
           <Text style={styles.badge}>{item.category}</Text>
           <Text style={styles.availability}>{item.seatsLeft} seats</Text>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   badge: {
     color: colors.text,
-    backgroundColor: 'rgba(124,77,255,0.34)',
+    backgroundColor: withAlpha(colors.gold, 0.34),
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 999,

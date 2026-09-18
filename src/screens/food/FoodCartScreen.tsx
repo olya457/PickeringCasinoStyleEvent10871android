@@ -7,7 +7,7 @@ import { Screen } from '../../components/Screen';
 import { foodItems } from '../../data/content';
 import { FoodStackParamList } from '../../navigation/types';
 import { useAppContext } from '../../state/AppContext';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 import { calculateCartTotal, calculatePrepMinutes } from '../../utils/booking';
 import { compactPrice } from '../../utils/format';
 
@@ -149,9 +149,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   summary: {
-    backgroundColor: 'rgba(243,199,54,0.08)',
+    backgroundColor: withAlpha(colors.gold, 0.08),
     borderWidth: 1,
-    borderColor: 'rgba(243,199,54,0.18)',
+    borderColor: withAlpha(colors.gold, 0.18),
     borderRadius: 18,
     padding: 16,
     gap: 10,

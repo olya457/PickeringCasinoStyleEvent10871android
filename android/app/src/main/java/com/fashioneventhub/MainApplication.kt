@@ -1,4 +1,4 @@
-package com.pickering.styleevent
+package com.fashioneventhub
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -5,7 +5,7 @@ import { GradientButton } from '../../components/GradientButton';
 import { Screen } from '../../components/Screen';
 import { parkingFloors } from '../../data/content';
 import { ParkingStackParamList } from '../../navigation/types';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 
 export const ParkingHomeScreen = ({ navigation }: NativeStackScreenProps<ParkingStackParamList, 'ParkingHome'>) => (
   <Screen>
@@ -32,15 +32,15 @@ export const ParkingHomeScreen = ({ navigation }: NativeStackScreenProps<Parking
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'rgba(124,77,255,0.12)',
+    backgroundColor: withAlpha(colors.gold, 0.12),
     borderWidth: 1,
-    borderColor: 'rgba(124,77,255,0.2)',
+    borderColor: withAlpha(colors.gold, 0.2),
     borderRadius: 20,
     padding: 18,
     gap: 8,
   },
   eyebrow: {
-    color: '#B58BFF',
+    color: colors.champagne,
     textTransform: 'uppercase',
     fontWeight: '800',
     fontSize: 12,

@@ -5,7 +5,7 @@ import { GradientButton } from '../../components/GradientButton';
 import { Screen } from '../../components/Screen';
 import { events } from '../../data/content';
 import { EventsStackParamList } from '../../navigation/types';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 
 export const EventDetailsScreen = ({ route, navigation }: NativeStackScreenProps<EventsStackParamList, 'EventDetails'>) => {
   const item = events.find(event => event.id === route.params.eventId);
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   badge: {
     color: colors.text,
-    backgroundColor: 'rgba(124,77,255,0.24)',
+    backgroundColor: withAlpha(colors.gold, 0.24),
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 999,
@@ -118,10 +118,10 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   infoBox: {
-    backgroundColor: 'rgba(243,199,54,0.08)',
+    backgroundColor: withAlpha(colors.gold, 0.08),
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(243,199,54,0.18)',
+    borderColor: withAlpha(colors.gold, 0.18),
     padding: 18,
     gap: 10,
   },

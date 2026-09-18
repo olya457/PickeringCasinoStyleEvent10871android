@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabActive: {
-    backgroundColor: colors.pink,
-    borderColor: colors.pink,
+    backgroundColor: colors.gold,
+    borderColor: colors.gold,
   },
   tabText: {
     color: colors.text,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   tabTextActive: {
-    color: colors.text,
+    color: colors.textOnAccent,
   },
   grid: {
     flexDirection: 'row',

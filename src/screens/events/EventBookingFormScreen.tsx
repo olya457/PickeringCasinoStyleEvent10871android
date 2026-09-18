@@ -167,14 +167,14 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   slotActive: {
-    backgroundColor: colors.pink,
-    borderColor: colors.pink,
+    backgroundColor: colors.gold,
+    borderColor: colors.gold,
   },
   slotText: {
     color: colors.text,
     fontWeight: '700',
   },
   slotTextActive: {
-    color: colors.text,
+    color: colors.textOnAccent,
   },
 });

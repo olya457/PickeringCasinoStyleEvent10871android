@@ -5,7 +5,7 @@ import { Screen } from '../../components/Screen';
 import { parkingFloors } from '../../data/content';
 import { ParkingStackParamList } from '../../navigation/types';
 import { useAppContext } from '../../state/AppContext';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 
 export const ParkingFloorScreen = ({ route, navigation }: NativeStackScreenProps<ParkingStackParamList, 'ParkingFloor'>) => {
   const floor = parkingFloors.find(item => item.floor === route.params.floor);
@@ -53,7 +53,7 @@ export const ParkingFloorScreen = ({ route, navigation }: NativeStackScreenProps
                     onPress={() => setSelected(space.id)}
                     style={[styles.space, reserved && styles.reservedSpace, selectedNow && styles.selectedSpace]}
                   >
-                    <Text style={styles.spaceText}>{space.number}</Text>
+                    <Text style={[styles.spaceText, selectedNow && styles.selectedSpaceText]}>{space.number}</Text>
                   </Pressable>
                 );
               })}
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   entrance: {
     alignSelf: 'flex-end',
-    backgroundColor: 'rgba(243,199,54,0.14)',
+    backgroundColor: withAlpha(colors.gold, 0.14),
     color: colors.gold,
     paddingHorizontal: 10,
     paddingVertical: 6,
@@ -150,20 +150,23 @@ const styles = StyleSheet.create({
     width: 34,
     height: 26,
     borderRadius: 8,
-    backgroundColor: 'rgba(42,210,123,0.22)',
+    backgroundColor: withAlpha(colors.green, 0.22),
     alignItems: 'center',
     justifyContent: 'center',
   },
   reservedSpace: {
-    backgroundColor: 'rgba(255,91,107,0.38)',
+    backgroundColor: withAlpha(colors.red, 0.38),
   },
   selectedSpace: {
-    backgroundColor: 'rgba(243,199,54,0.92)',
+    backgroundColor: withAlpha(colors.gold, 0.92),
   },
   spaceText: {
     color: colors.text,
     fontSize: 12,
     fontWeight: '800',
+  },
+  selectedSpaceText: {
+    color: colors.textOnAccent,
   },
   helper: {
     color: colors.textMuted,
@@ -173,7 +176,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(243,199,54,0.18)',
+    borderColor: withAlpha(colors.gold, 0.18),
     padding: 18,
     gap: 8,
   },
@@ -192,14 +195,14 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   reserveButton: {
-    backgroundColor: colors.pink,
+    backgroundColor: colors.gold,
     borderRadius: 16,
     paddingVertical: 14,
     marginTop: 10,
     alignItems: 'center',
   },
   reserveText: {
-    color: colors.text,
+    color: colors.textOnAccent,
     fontWeight: '800',
   },
 });

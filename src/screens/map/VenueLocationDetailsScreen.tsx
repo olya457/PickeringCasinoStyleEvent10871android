@@ -4,7 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Screen } from '../../components/Screen';
 import { venueLocations } from '../../data/content';
 import { MapStackParamList } from '../../navigation/types';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 
 export const VenueLocationDetailsScreen = ({ route, navigation }: NativeStackScreenProps<MapStackParamList, 'VenueLocationDetails'>) => {
   const item = venueLocations.find(location => location.id === route.params.locationId);
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   tag: {
     alignSelf: 'flex-start',
     color: colors.text,
-    backgroundColor: 'rgba(124,77,255,0.24)',
+    backgroundColor: withAlpha(colors.gold, 0.24),
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 999,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   infoLabel: {
-    color: '#B58BFF',
+    color: colors.champagne,
     fontSize: 12,
     fontWeight: '800',
     textTransform: 'uppercase',

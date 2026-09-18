@@ -6,7 +6,7 @@ import { GradientButton } from '../../components/GradientButton';
 import { Screen } from '../../components/Screen';
 import { ParkingStackParamList } from '../../navigation/types';
 import { useAppContext } from '../../state/AppContext';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 
 export const ParkingReserveScreen = ({ route, navigation }: NativeStackScreenProps<ParkingStackParamList, 'ParkingReserve'>) => {
   const { bookings, upsertParkingBooking } = useAppContext();
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   space: {
-    color: '#A67DFF',
+    color: colors.gold,
     fontSize: 28,
     fontWeight: '800',
   },
@@ -98,15 +98,15 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   summary: {
-    backgroundColor: 'rgba(124,77,255,0.12)',
+    backgroundColor: withAlpha(colors.gold, 0.12),
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(124,77,255,0.2)',
+    borderColor: withAlpha(colors.gold, 0.2),
     padding: 18,
     gap: 8,
   },
   summaryTitle: {
-    color: '#B58BFF',
+    color: colors.champagne,
     textTransform: 'uppercase',
     fontWeight: '800',
     fontSize: 12,

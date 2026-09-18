@@ -1,4 +1,4 @@
-package com.pickering.styleevent
+package com.fashioneventhub
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

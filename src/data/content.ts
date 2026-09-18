@@ -4,9 +4,9 @@ import { EventItem, FoodCategoryId, FoodItem, ParkingFloor, VenueLocation } from
 export const onboardingSlides = [
   {
     id: 'welcome',
-    title: 'Welcome to the Fashion Event',
+    title: 'Welcome to Fashion Event Hub',
     description:
-      "Your digital companion for Pickering's style event. Explore shows, dine, park, and navigate the venue in one place.",
+      'Your digital companion, Fashion Event Hub. Explore shows, dine, park, and navigate the venue in one place.',
     image: onboardingAssets[0],
     buttonLabel: 'Continue',
   },
@@ -469,7 +469,7 @@ export const homeHighlights = [
 ];
 
 export const homeBanner = {
-  title: 'Welcome to the Fashion Event',
+  title: 'Welcome to Fashion Event Hub',
   subtitle: '10 exclusive shows · 10 days of fashion',
   badge: 'Sep 5-14, 2026 · Pickering, ON',
   image: brandingAssets.heroVenue,

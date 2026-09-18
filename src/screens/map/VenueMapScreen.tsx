@@ -4,19 +4,19 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Screen } from '../../components/Screen';
 import { venueLocations } from '../../data/content';
 import { MapStackParamList } from '../../navigation/types';
-import { colors } from '../../theme/colors';
+import { colors, withAlpha } from '../../theme/colors';
 
 const markers: { id: string; x: DimensionValue; y: DimensionValue; color: string; label: string }[] = [
-  { id: 'main-entrance', x: '26%', y: '82%', color: '#F3C736', label: '1' },
-  { id: 'runway-hall', x: '34%', y: '52%', color: '#FF4D6D', label: '2' },
-  { id: 'designer-showroom', x: '66%', y: '45%', color: '#2AD27B', label: '3' },
-  { id: 'fashion-exhibition-zone', x: '54%', y: '26%', color: '#2AD27B', label: '4' },
-  { id: 'food-court', x: '77%', y: '64%', color: '#8E5CFF', label: '5' },
-  { id: 'vip-lounge', x: '14%', y: '28%', color: '#F39C12', label: '6' },
-  { id: 'backstage-area', x: '22%', y: '54%', color: '#80808F', label: '7' },
-  { id: 'photo-media-zone', x: '46%', y: '14%', color: '#15B4FF', label: '8' },
-  { id: 'networking-lounge', x: '66%', y: '60%', color: '#FF4D8D', label: '9' },
-  { id: 'parking-area', x: '84%', y: '78%', color: '#80808F', label: '10' },
+  { id: 'main-entrance', x: '26%', y: '82%', color: colors.gold, label: '1' },
+  { id: 'runway-hall', x: '34%', y: '52%', color: colors.rose, label: '2' },
+  { id: 'designer-showroom', x: '66%', y: '45%', color: colors.sage, label: '3' },
+  { id: 'fashion-exhibition-zone', x: '54%', y: '26%', color: colors.sage, label: '4' },
+  { id: 'food-court', x: '77%', y: '64%', color: colors.taupe, label: '5' },
+  { id: 'vip-lounge', x: '14%', y: '28%', color: colors.bronze, label: '6' },
+  { id: 'backstage-area', x: '22%', y: '54%', color: colors.textMuted, label: '7' },
+  { id: 'photo-media-zone', x: '46%', y: '14%', color: colors.blue, label: '8' },
+  { id: 'networking-lounge', x: '66%', y: '60%', color: colors.rose, label: '9' },
+  { id: 'parking-area', x: '84%', y: '78%', color: colors.textMuted, label: '10' },
 ];
 
 export const VenueMapScreen = ({ navigation }: NativeStackScreenProps<MapStackParamList, 'VenueMap'>) => {
@@ -40,12 +40,12 @@ export const VenueMapScreen = ({ navigation }: NativeStackScreenProps<MapStackPa
       </View>
       <View style={styles.legendRow}>
         {[
-          ['Entry', '#F3C736'],
-          ['Show', '#FF4D6D'],
-          ['Exhibition', '#2AD27B'],
-          ['Dining', '#8E5CFF'],
-          ['VIP', '#F39C12'],
-          ['Restricted', '#80808F'],
+          ['Entry', colors.gold],
+          ['Show', colors.rose],
+          ['Exhibition', colors.sage],
+          ['Dining', colors.taupe],
+          ['VIP', colors.bronze],
+          ['Restricted', colors.textMuted],
         ].map(([title, color]) => (
           <View key={title} style={styles.legend}>
             <View style={[styles.legendDot, { backgroundColor: color }]} />
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   mapCanvas: {
     height: 360,
     borderRadius: 26,
-    backgroundColor: '#161622',
+    backgroundColor: colors.surfaceMuted,
     borderWidth: 1,
     borderColor: colors.border,
     overflow: 'hidden',
@@ -104,32 +104,32 @@ const styles = StyleSheet.create({
     top: '6%',
     width: '26%',
     height: '22%',
-    backgroundColor: 'rgba(243,156,18,0.08)',
-    borderColor: 'rgba(243,156,18,0.18)',
+    backgroundColor: withAlpha(colors.bronze, 0.08),
+    borderColor: withAlpha(colors.bronze, 0.18),
   },
   zoneRunway: {
     left: '5%',
     top: '34%',
     width: '35%',
     height: '30%',
-    backgroundColor: 'rgba(255,77,109,0.08)',
-    borderColor: 'rgba(255,77,109,0.18)',
+    backgroundColor: withAlpha(colors.rose, 0.08),
+    borderColor: withAlpha(colors.rose, 0.18),
   },
   zoneExhibition: {
     left: '42%',
     top: '8%',
     width: '43%',
     height: '38%',
-    backgroundColor: 'rgba(42,210,123,0.08)',
-    borderColor: 'rgba(42,210,123,0.18)',
+    backgroundColor: withAlpha(colors.green, 0.08),
+    borderColor: withAlpha(colors.green, 0.18),
   },
   zoneDining: {
     left: '56%',
     top: '54%',
     width: '34%',
     height: '22%',
-    backgroundColor: 'rgba(142,92,255,0.08)',
-    borderColor: 'rgba(142,92,255,0.18)',
+    backgroundColor: withAlpha(colors.taupe, 0.08),
+    borderColor: withAlpha(colors.taupe, 0.18),
   },
   marker: {
     position: 'absolute',
@@ -139,13 +139,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.18)',
+    borderColor: withAlpha(colors.champagne, 0.18),
   },
   markerSelected: {
+    borderColor: colors.text,
     transform: [{ scale: 1.16 }],
   },
   markerText: {
-    color: colors.text,
+    color: colors.textOnAccent,
     fontSize: 11,
     fontWeight: '800',
   },
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
   previewTag: {
     alignSelf: 'flex-start',
     color: colors.text,
-    backgroundColor: 'rgba(124,77,255,0.24)',
+    backgroundColor: withAlpha(colors.gold, 0.24),
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 999,
@@ -199,8 +200,8 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
   },
   previewCta: {
-    color: colors.text,
-    backgroundColor: colors.pink,
+    color: colors.textOnAccent,
+    backgroundColor: colors.gold,
     borderRadius: 14,
     paddingVertical: 14,
     overflow: 'hidden',
@@ -226,7 +227,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   indexText: {
-    color: colors.text,
+    color: colors.textOnAccent,
     fontWeight: '800',
     fontSize: 12,
   },
