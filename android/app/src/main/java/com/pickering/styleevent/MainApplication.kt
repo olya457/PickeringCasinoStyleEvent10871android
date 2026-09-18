@@ -1,4 +1,4 @@
-package com.pickeringcasinostyleevent
+package com.pickering.styleevent
 
 import android.app.Application
 import com.facebook.react.PackageList

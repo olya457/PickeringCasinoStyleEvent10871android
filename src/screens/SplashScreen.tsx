@@ -46,7 +46,7 @@ export const SplashScreen = ({ navigation, bootOnly }: Props) => {
             </Animated.View>
           </View>
           <GradientText width={titleWidth} fontSize={isTablet ? 48 : 36} style={styles.title}>
-            Pickering Casino
+            Pickering
           </GradientText>
           <Text style={styles.subtitle}>Style Event</Text>
           <View style={styles.loaderWrap}>

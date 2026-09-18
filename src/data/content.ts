@@ -469,7 +469,7 @@ export const homeHighlights = [
 ];
 
 export const homeBanner = {
-  title: 'Welcome to the Casino Fashion Event',
+  title: 'Welcome to the Fashion Event',
   subtitle: '10 exclusive shows · 10 days of fashion',
   badge: 'Sep 5-14, 2026 · Pickering, ON',
   image: brandingAssets.heroVenue,

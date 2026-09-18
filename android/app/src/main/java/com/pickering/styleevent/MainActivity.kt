@@ -1,4 +1,4 @@
-package com.pickeringcasinostyleevent
+package com.pickering.styleevent
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
